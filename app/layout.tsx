@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Afacad } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 
 const afacad = Afacad({
@@ -22,10 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${afacad.variable} ${afacad.variable} antialiased`}
+        className={`${afacad.variable} ${afacad.variable} antialiased flex flex-col min-h-screen`}
       >
         <Navbar/>
         {children}
+        <Footer/>
       </body>
     </html>
   );
