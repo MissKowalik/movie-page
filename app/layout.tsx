@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Afacad } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/navbar";
 
 
 const afacad = Afacad({
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body
         className={`${afacad.variable} ${afacad.variable} antialiased`}
       >
+        <Navbar/>
         {children}
       </body>
     </html>
