@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default async function Hero() {
     const movies = await getPopularMovies();
-    const heroMovie = await movies[7];
+    const heroMovie = await movies[4];
 
     return (
     <header className="relative w-full h-[calc(100vh-80px)]">
@@ -15,9 +15,9 @@ export default async function Hero() {
             sizes="100vw"
             priority
         />
-        <div className="absolute bottom-0 left-0 w-full h-200 bg-gradient-to-t to-transparent from-black/80" />
-        <div className="absolute bottom-75 left-1/10 max-w-[40%] p-4 rounded-md text-white">
-            <h1 className="text-4xl font-bold">{heroMovie.title}</h1>
+        <div className="absolute bottom-0 left-0 w-full h-200 bg-gradient-to-t to-transparent from-black" />
+        <div className="absolute bottom-45 left-1/10 max-w-[40%] p-4 rounded-md text-white">
+            <h1 className="text-6xl">{heroMovie.title}</h1>
         </div>
     </header>
   );
