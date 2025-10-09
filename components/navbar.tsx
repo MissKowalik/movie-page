@@ -38,27 +38,27 @@ export default function Navbar() {
                         <Image
                             src="/search.svg"
                             alt="Search Icon"
-                            layout="fill"
-                            objectFit="contain"
-                            />
+                            fill
+                            style={{ objectFit: 'contain' }}
+                        />
                     </div>
 
-                    <div className="w-[28px] h-[28px] relative ">
+                    <div className="w-[28px] h-[28px] relative contain">
                         <Image
                             src="/user.svg"
                             alt="User Icon"
-                            layout="fill"
-                            objectFit="contain"
-                            />
+                            fill
+                            style={{ objectFit: 'contain' }}
+                        />
                     </div>
 
                     <div className="w-[28px] h-[28px] relative md:hidden">
                         <Image
                             src="/hamburger-menu.svg"
                             alt="Hamburger Menu Icon"
-                            layout="fill"
-                            objectFit="contain"
-                            />
+                            fill
+                            style={{ objectFit: 'contain' }}
+                        />
                     </div>
                 </div>
             </nav>
