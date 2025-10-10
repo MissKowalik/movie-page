@@ -9,8 +9,8 @@ const jaro = Jaro({
 
 export default function Navbar() {
     return (
-        <header>
-            <nav className="flex items-center justify-between bg-orange-100 text-black py-4 px-4 md:px-8">
+        <header className="absolute top-0 left-0 w-full z-50">
+            <nav className="flex items-center justify-between bg-white/60 backdrop-blur-md text-black py-4 px-4 md:px-8">
                 {/* links */}
                 <ul className="hidden md:flex md:text-2xl font-bold md:gap-6 md:w-1/3 md:justify-start">
                     <li>
