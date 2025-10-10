@@ -8,7 +8,7 @@ type Genre = {
 
 export default async function Hero() {
     const movies = await getPopularMovies();
-    const heroMovie = await movies[2];
+    const heroMovie = await movies[6];
     const genres = await getGenres();
     
     // map genre ids to names
@@ -18,7 +18,7 @@ export default async function Hero() {
     const releaseYear = heroMovie.release_date.split("-")[0];
 
     return (
-    <header className="relative w-full h-[calc(100vh-80px)]">
+    <header className="relative w-full h-screen">
         <Image
             src={`https://image.tmdb.org/t/p/original/${heroMovie.backdrop_path}`}
             alt={`Backdrop image of ${heroMovie.title}`}
