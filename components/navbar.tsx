@@ -17,7 +17,7 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 w-full z-50">
 
         {/* Shared backdrop for navbar + menu */}
-        <div className="bg-white/60 backdrop-blur-md shadow-sm">
+        <div className="bg-white/60 backdrop-blur-md">
             <nav className="flex items-center justify-between py-4 px-4 md:px-8 text-black">
             
                 {/* desktop navigation links */}
@@ -35,7 +35,11 @@ export default function Navbar() {
 
                 {/* logo */}
                 <div className="md:w-1/3 text-center">
-                    <Link href={"/"} className={`${jaro.className} text-3xl md:text-5xl`}>
+                    <Link 
+                        href={"/"} 
+                        className={`${jaro.className} text-3xl md:text-5xl`}
+                        onClick={() => setMenuOpen(false)}
+                    >
                         <span className="italic">My- </span>MDB
                     </Link>
                 </div>
@@ -79,7 +83,11 @@ export default function Navbar() {
                 <div className="md:hidden text-black">
                     <ul className="flex flex-col text-xl font-light pb-4 px-4 space-y-4">
                         <li>
-                            <Link href={""} className="flex items-center justify-between">
+                            <Link 
+                                href={""} 
+                                className="flex items-center justify-between"
+                                onClick={() => setMenuOpen(false)}
+                            >
                                 <span>Movies</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px" fill="currentColor" className="w-4 h-4 md:hidden">
                                     <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/>
@@ -87,7 +95,11 @@ export default function Navbar() {
                             </Link>
                         </li>
                         <li>
-                            <Link href={""} className="flex items-center justify-between">
+                            <Link 
+                                href={""} 
+                                className="flex items-center justify-between"
+                                onClick={() => setMenuOpen(false)}
+                            >
                                 <span>People</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px" fill="currentColor" className="w-4 h-4 md:hidden">
                                     <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/>
