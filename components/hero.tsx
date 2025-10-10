@@ -1,4 +1,4 @@
-import { getGenres, getPopularMovies } from "@/lib/data/tmdb"
+import { getGenres, getRandomMovie } from "@/lib/data/tmdb"
 import Image from "next/image";
 
 type Genre = {
@@ -7,8 +7,7 @@ type Genre = {
 }
 
 export default async function Hero() {
-    const movies = await getPopularMovies();
-    const heroMovie = await movies[6];
+    const heroMovie = await getRandomMovie();
     const genres = await getGenres();
     
     // map genre ids to names
