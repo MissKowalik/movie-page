@@ -17,7 +17,7 @@ export default async function MovieCard() {
             />
             <div className="py-2 text-xl">
                 <div className="flex justify-between gap-4 text-xs lg:text-lg">
-                    <span>{movie.vote_average}</span>
+                    <span>{movie.vote_average.toFixed(1)}</span>
                     <span>{release_year}</span>
                 </div>
                 <h3 className="text-md lg:text-2xl py-1">{movie.title}</h3>
