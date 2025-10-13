@@ -73,7 +73,14 @@ export async function getRandomMovie() {
 
   const data = await response.json();
 
-  // pick random movie from that page
-  const randomIndex = Math.floor(Math.random() * data.results.length);
-  return data.results[randomIndex];
+  // filter on movies with a backdrop image
+  const moviesWithBackdrop = data.results.filter((movie: { backdrop_path: string | null }) => movie.backdrop_path);
+
+  if (moviesWithBackdrop === 0) {
+    return null;
+  }
+
+  // pick random movie from filtered list
+  const randomIndex = Math.floor(Math.random() * moviesWithBackdrop.length);
+  return moviesWithBackdrop[randomIndex];
 }
