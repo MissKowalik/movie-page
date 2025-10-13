@@ -28,7 +28,7 @@ export default async function Hero() {
         />
 
         {/* dark gradient background for contrast against the white text */}
-        <div className="absolute bottom-0 left-0 w-full h-200 bg-gradient-to-t to-transparent from-black" />
+        <div className="absolute bottom-0 left-0 w-full h-[60%] bg-gradient-to-t to-transparent from-black" />
 
         <div
             className="
