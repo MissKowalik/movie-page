@@ -17,7 +17,15 @@ export default async function Hero() {
     const releaseYear = heroMovie.release_date.split("-")[0];
 
     return (
-    <header className="relative w-full h-[60vh] sm:h-[70vh] lg:h-screen">
+    <header 
+        className="relative w-full"
+        style={{
+            height: "auto",
+            minHeight: "70vh",
+            maxHeight: "100vh",
+            aspectRatio: "16 / 9",
+        }}
+    >
         <Image
             src={`https://image.tmdb.org/t/p/original/${heroMovie.backdrop_path}`}
             alt={`Backdrop image of ${heroMovie.title}`}
