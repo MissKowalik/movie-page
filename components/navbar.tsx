@@ -18,7 +18,7 @@ export default function Navbar() {
 
         {/* Shared backdrop for navbar + menu */}
         <div className="bg-white/60 backdrop-blur-md">
-            <nav className="flex items-center justify-between py-4 px-4 md:px-8 text-black">
+            <nav className="flex items-center justify-between py-2 px-4 md:px-8 text-black">
             
                 {/* desktop navigation links */}
                 <ul className="hidden md:flex md:text-2xl font-bold md:gap-6 md:w-1/3 md:justify-start">
