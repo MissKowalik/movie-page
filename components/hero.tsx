@@ -17,14 +17,14 @@ export default async function Hero() {
     const releaseYear = heroMovie.release_date.split("-")[0];
 
     return (
-    <header className="relative w-full h-screen">
+    <header className="relative w-full h-[60vh] sm:h-[70vh] lg:h-screen">
         <Image
             src={`https://image.tmdb.org/t/p/original/${heroMovie.backdrop_path}`}
             alt={`Backdrop image of ${heroMovie.title}`}
-            fill
-            style={{ objectFit: "cover" }}
-            sizes="100vw"
-            priority
+            fill  // Makes the image fill the parent container
+            style={{ objectFit: "cover" }}  // Ensures image covers the area without distortion
+            sizes="100vw"  // Responsive image sizing for optimization
+            priority  // Loads image early for better UX
         />
 
         {/* dark gradient background for contrast against the white text */}
