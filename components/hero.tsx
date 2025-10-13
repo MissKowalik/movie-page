@@ -13,9 +13,6 @@ export default async function Hero() {
     // map genre ids to names
     const genreNames = heroMovie.genre_ids.map((id: number) => genres.find((g: Genre) => g.id === id)?.name)
 
-    // Extract release year from release_date string
-    const releaseYear = heroMovie.release_date.split("-")[0];
-
     return (
     <header 
         className="relative w-full"
@@ -40,17 +37,14 @@ export default async function Hero() {
 
         <div
             className="
-                absolute bottom-20 text-center flex flex-col
+                absolute bottom-15 text-center flex flex-col
                 left-1/2 -translate-x-1/2 
                 w-[90%] sm:w-[80%] 
                 lg:left-[10%] lg:bottom-[20%] lg:translate-x-0 lg:max-w-[40%] lg:text-left
             "
         >
-            <h1 className="text-3xl md:text-5xl xl:text-6xl">
+            <h1 className="text-2xl md:text-4xl xl:text-6xl">
                 {heroMovie.title}
-                <span className="ml-4 xl:ml-6 text-lg xl:text-2xl font-light align-baseline">
-                {releaseYear}
-                </span>
             </h1>
 
             {/* genres */}
@@ -58,7 +52,7 @@ export default async function Hero() {
                 {genreNames.map((genre: string) => (
                 <span
                     key={genre}
-                    className="px-2 py-1 bg-gray-600/60 rounded text-sm xl:text-xl"
+                    className="px-2 py-1 bg-gray-600/60 rounded text-sm md:text-lg xl:text-xl"
                 >
                     {genre}
                 </span>
