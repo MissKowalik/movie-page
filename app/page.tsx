@@ -4,12 +4,12 @@ import { getPopularMovies } from "@/lib/data/tmdb";
 
 export default async function Home() {
   const popularMovies = await getPopularMovies();
-  const fivePopularMovies = await popularMovies.slice(0, 6)
+  const popularMoviesSelection = await popularMovies.slice(0, 6)
 
   return (
     <main className="flex-grow">
       <Hero/>
-      <CardRow movies={fivePopularMovies} heading="Popular Movies"/>
+      <CardRow movies={popularMoviesSelection} heading="Popular Movies"/>
     </main>
   )
 }
