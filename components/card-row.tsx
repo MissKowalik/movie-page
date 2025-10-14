@@ -8,9 +8,9 @@ type CardRowProps = {
 
 export default function CardRow({ heading, movies }: CardRowProps) {
     return (
-        <section className="px-4 py-8 overflow-hidden">
-            <h2 className="text-2xl pb-8">{heading}</h2>
-            <div className="grid grid-flow-col gap-4 overflow-x-auto scrollbar-hide">
+        <section className="px-4 md:px-8 py-8 overflow-hidden">
+            <h2 className="text-xl lg:text-3xl pb-8">{heading}</h2>
+            <div className="flex gap-4 overflow-x-auto scrollbar-hide">
                 {movies.map((movie) => (
                     <MovieCard key={movie.id} movie={movie} />
                 ))}
