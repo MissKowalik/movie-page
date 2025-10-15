@@ -4,7 +4,7 @@ import { Genre } from "@/lib/types/genre";
 import Link from "next/link";
 
 
-export default async function Hero() {
+export default async function HeroStartpage() {
     const movie = await getRandomMovie();
     const genres = await getGenres();
     
