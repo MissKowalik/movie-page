@@ -37,7 +37,7 @@ export default async function Hero() {
                 absolute bottom-15 text-center flex flex-col
                 left-1/2 -translate-x-1/2 
                 w-[90%] sm:w-[80%] 
-                lg:left-[10%] lg:bottom-[20%] lg:translate-x-0 lg:max-w-[40%] lg:text-left
+                lg:left-[10%] lg:bottom-[15%] lg:translate-x-0 lg:max-w-[40%] lg:text-left
             "
         >
             <h1 className="text-2xl md:text-4xl xl:text-6xl">

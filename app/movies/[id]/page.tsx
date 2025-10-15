@@ -27,22 +27,26 @@ export default async function MovieDetails({params}: {params: Promise<{id: numbe
                 />
         
                 {/* dark gradient background for contrast against the white text */}
-                <div className="absolute bottom-0 left-0 w-full h-[60%] bg-gradient-to-t to-transparent from-black" />
+                <div className="absolute bottom-0 left-0 w-full h-full lg:h-[60%] bg-gradient-to-t to-transparent from-black" />
         
                 <div
                     className="
-                        absolute bottom-15 text-center flex flex-col
+                        absolute 
+                        top-[20%] sm:top-auto sm:bottom-[15%]
                         left-1/2 -translate-x-1/2 
                         w-[90%] sm:w-[80%] 
-                        lg:left-[10%] lg:bottom-[15%] lg:translate-x-0 lg:max-w-[40%] lg:text-left
+                        lg:left-[10%] lg:translate-x-0 lg:max-w-[40%]
+                        text-center lg:text-left flex flex-col gap-2
                     "
                 >
                     <h1 className="text-2xl md:text-4xl xl:text-6xl">
                         {movie.title}
                     </h1>
 
+                    
+
                     {/* genres */}
-                    <div className="flex justify-center lg:justify-start gap-4 flex-wrap mt-2">
+                    <div className="flex justify-center lg:justify-start gap-4 flex-wrap">
                         {movie.genres.map((genre: Genre) => (
                         <span
                             key={genre.id}
@@ -53,8 +57,19 @@ export default async function MovieDetails({params}: {params: Promise<{id: numbe
                         ))}
                     </div>
 
-                    <div className="my-4">
+                    
+
+                    <div className="mt-2 text-pretty">
                         {movie.overview}
+                    </div>
+
+                    {/* Release year & rating */}
+                    <div className="flex justify-center lg:justify-start gap-4 text-sm lg:text-lg mt-2">
+                        <span>{movie.release_date.split("-")[0]}</span>
+                        <span className="flex items-center">
+                            <span className="text-amber-400 pr-1">★</span>
+                            {movie.vote_average.toFixed(1)}
+                        </span>
                     </div>
                 </div>
         
