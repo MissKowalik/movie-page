@@ -1,10 +1,7 @@
 import { getGenres, getRandomMovie } from "@/lib/data/tmdb"
 import Image from "next/image";
+import { Genre } from "@/lib/types/genre";
 
-type Genre = {
-    name: string,
-    id: number,
-}
 
 export default async function Hero() {
     const heroMovie = await getRandomMovie();
