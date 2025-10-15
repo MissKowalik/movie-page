@@ -1,3 +1,5 @@
+import { Genre } from "../types/genre";
+
 export interface Movie {
   id: number;
   release_date: string;
@@ -5,4 +7,6 @@ export interface Movie {
   title: string;
   vote_average: number;
   backdrop_path: string;
+  genres?: Genre[];
+  overview?: string;
 }
