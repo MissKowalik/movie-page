@@ -27,7 +27,7 @@ export default async function MovieDetails({params}: {params: Promise<{id: numbe
                 />
         
                 {/* dark gradient background for contrast against the white text */}
-                <div className="absolute bottom-0 left-0 w-full h-full lg:h-[60%] bg-gradient-to-t to-transparent from-black" />
+                <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t to-neutral-400/20 from-black" />
         
                 <div
                     className="
@@ -59,12 +59,12 @@ export default async function MovieDetails({params}: {params: Promise<{id: numbe
 
                     
 
-                    <div className="mt-2 text-pretty">
+                    <div className="text-pretty">
                         {movie.overview}
                     </div>
 
                     {/* Release year & rating */}
-                    <div className="flex justify-center lg:justify-start gap-4 text-sm lg:text-lg mt-2">
+                    <div className="flex justify-center lg:justify-start gap-4 text-sm lg:text-lg">
                         <span>{movie.release_date.split("-")[0]}</span>
                         <span className="flex items-center">
                             <span className="text-amber-400 pr-1">★</span>
