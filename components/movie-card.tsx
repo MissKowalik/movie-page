@@ -1,12 +1,5 @@
 import Image from "next/image";
-
-export interface Movie {
-  id: number;
-  release_date: string;
-  poster_path: string;
-  title: string;
-  vote_average: number;
-}
+import { Movie } from "@/lib/interfaces/movie";
 
 export default function MovieCard({ movie }: { movie: Movie }) {
   const release_year = movie.release_date.split("-")[0];
