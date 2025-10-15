@@ -84,3 +84,24 @@ export async function getRandomMovie() {
   const randomIndex = Math.floor(Math.random() * moviesWithBackdrop.length);
   return moviesWithBackdrop[randomIndex];
 }
+
+
+
+// Fetch movie by id
+export async function getMovieById(movie_id: number) {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/movie/${movie_id}?&api_key=${process.env.API_KEY}`,
+    {
+      headers: {
+        accept: "application/json",
+      },
+    }
+  )
+
+  if (!response.ok) {
+    throw new Error(`API responded with status ${response.status}`);
+  }
+
+  const data = await response.json();
+  return data;
+}

@@ -1,5 +1,5 @@
 import CardRow from "@/components/card-row";
-import Hero from "@/components/hero";
+import HeroStartpage from "@/components/hero-startpage";
 import { getPopularMovies, getUpcomingMovies } from "@/lib/data/tmdb";
 
 export default async function Home() {
@@ -11,7 +11,7 @@ export default async function Home() {
 
   return (
     <main className="flex-grow">
-      <Hero/>
+      <HeroStartpage/>
       <CardRow movies={popularMoviesSelection} heading="Popular Movies"/>
       <CardRow movies={upcomingMoviesSelection} heading="Upcoming Movies"/>
     </main>
