@@ -33,7 +33,7 @@ export default function MovieCard({ movie }: { movie: Movie }) {
 
           {/* Title */}
           <Link href={`/movies/${movie.id}`}>
-            <h3 className="text-sm lg:text-base font-medium text-white leading-tight hover:underline">
+            <h3 className="text-sm lg:text-base font-medium text-white leading-tight line-clamp-1 hover:underline">
               {movie.title}
             </h3>
           </Link>

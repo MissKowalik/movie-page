@@ -23,7 +23,7 @@ export default function Navbar() {
                 {/* desktop navigation links */}
                 <ul className="hidden md:flex md:text-2xl font-bold md:gap-6 md:w-1/3 md:justify-start">
                     <li>
-                        <Link href={""}>
+                        <Link href={"/movies"}>
                             Movies
                         </Link></li>
                     <li>
