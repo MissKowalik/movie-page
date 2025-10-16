@@ -1,10 +1,16 @@
 import MovieCard from "./movie-card"
 import { getMovies } from "@/lib/data/tmdb"
 import { Movie } from "@/lib/interfaces/movie";
+import Pagination from "./pagination";
 
-export default async function CardGrid() {
-    const page = 1;
-    const movies = await getMovies(page); 
+export default async function CardGrid({
+    searchParams
+}: {
+    searchParams: Promise<{ [key: string]: string | undefined}>;
+}) {
+    const { page = "1"} = await searchParams;
+    const pageNumber = parseInt(page)
+    const { movies, totalPages} = await getMovies(pageNumber); 
 
     return (
         <section className="flex flex-col items-center px-4 md:px-8">
@@ -15,6 +21,10 @@ export default async function CardGrid() {
                     </li>
                 ))}
             </ul>
+
+            {/* pagination */}
+            <Pagination totalPages={totalPages}/>
+
         </section>
     )
 }

@@ -108,7 +108,7 @@ export async function getMovieById(movie_id: number) {
 
 
 // Fetch movies 
-export async function getMovies(page: number) {
+export async function getMovies(page = 1) {
   const response = await fetch(
     `https://api.themoviedb.org/3/discover/movie?&page=${page}&api_key=${process.env.API_KEY}`,
     {
@@ -119,5 +119,8 @@ export async function getMovies(page: number) {
   )
 
   const data = await response.json();
-  return data.results;
+  return {
+    movies: data.results,
+    totalPages: data.total_pages
+  };
 }
