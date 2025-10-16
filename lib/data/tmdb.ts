@@ -105,3 +105,19 @@ export async function getMovieById(movie_id: number) {
   const data = await response.json();
   return data;
 }
+
+
+// Fetch movies 
+export async function getMovies(page: number) {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/discover/movie?&page=${page}&api_key=${process.env.API_KEY}`,
+    {
+      headers: {
+        accept: "application/json",
+      },
+    }
+  )
+
+  const data = await response.json();
+  return data.results;
+}
