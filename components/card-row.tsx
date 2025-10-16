@@ -1,4 +1,4 @@
-import { Movie } from "./movie-card";
+import { Movie } from "@/lib/interfaces/movie";
 import MovieCard from "./movie-card";
 
 type CardRowProps = {
