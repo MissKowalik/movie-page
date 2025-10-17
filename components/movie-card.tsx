@@ -11,12 +11,17 @@ export default function MovieCard({ movie }: { movie: Movie }) {
         
         {/* Poster */}
         <Link href={`/movies/${movie.id}`} className="w-full">
-          <Image
-            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            alt={`poster of ${movie.title}`}
-            width={500}
-            height={750}
-          />
+          <div
+            className="relative w-full"
+            style={{ aspectRatio: '2 / 3' }} // default poster ratio
+          >
+            <Image
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              alt={`poster of ${movie.title}`}
+              fill
+              className="object-cover"
+            />
+          </div>
         </Link>
 
         {/* Info section */}
