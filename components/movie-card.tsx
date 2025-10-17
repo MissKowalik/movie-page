@@ -44,7 +44,7 @@ export default function MovieCard({ movie }: { movie: Movie }) {
           </Link>
 
           {/* Watchlist Button */}
-          <button className="mt-auto w-full rounded-full py-1 bg-neutral-700 text-xs lg:text-sm font-medium hover:bg-neutral-300 hover:text-black transition-colors">
+          <button className="mt-auto w-full rounded-full py-1 bg-neutral-700 text-xs lg:text-sm font-medium hover:bg-neutral-300 hover:text-black transition-colors hover:cursor-pointer">
             + Watchlist
           </button>
         </div>
