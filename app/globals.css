@@ -12,12 +12,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Hide scrollbar (cross-browser) */
-.scrollbar-hide::-webkit-scrollbar {
+/* hide scrollbar cross-browser */
+.scrollbar-none::-webkit-scrollbar {
   display: none;
 }
-
-.scrollbar-hide {
+.scrollbar-none {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }

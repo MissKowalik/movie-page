@@ -24,7 +24,7 @@ export default function CardRow({ heading, movies }: CardRowProps) {
         </button>
 
         {/* card list */}
-        <ul className="grid grid-flow-col auto-cols-[minmax(150px,1fr)] gap-4 overflow-x-auto scrollbar-hide">
+        <ul className="grid grid-flow-col md:auto-cols-[minmax(200px,1fr)] gap-4 overflow-x-auto scrollbar-none">
             {movies.map((movie) => (
             <li key={movie.id}>
                 <MovieCard movie={movie} />
