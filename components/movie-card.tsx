@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Movie } from "@/lib/interfaces/movie";
 import Link from "next/link";
+import getMovieDetailUrl from "@/utils/movieUtils";
 
 export default function MovieCard({ movie }: { movie: Movie }) {
   const release_year = movie.release_date.split("-")[0];
@@ -10,7 +11,7 @@ export default function MovieCard({ movie }: { movie: Movie }) {
       <article className="min-w-[150px] max-w-[250px] flex flex-col bg-neutral-900 rounded-lg overflow-hidden">
         
         {/* Poster */}
-        <Link href={`/movies/${movie.id}/${movie.title.replace(/\s+/g, '-')}`} className="w-full">
+        <Link href={getMovieDetailUrl(movie)} className="w-full">
           <div
             className="relative w-full"
             style={{ aspectRatio: '2 / 3' }} // default poster ratio
@@ -37,7 +38,7 @@ export default function MovieCard({ movie }: { movie: Movie }) {
           </div>
 
           {/* Title */}
-          <Link href={`/movies/${movie.id}/${movie.title.replace(/\s+/g, '-')}`}>
+          <Link href={getMovieDetailUrl(movie)}>
             <h3 className="text-sm lg:text-base font-medium text-white leading-tight line-clamp-1 hover:underline">
               {movie.title}
             </h3>
