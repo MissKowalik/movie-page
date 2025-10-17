@@ -23,7 +23,7 @@ export default function CardRow({ heading, movies }: CardRowProps) {
 
             {/* left scroll button */}
             <button 
-                className="absolute left-[3%] top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/70 hover:bg-black/90 transition hover:cursor-pointer"
+                className="hidden lg:block absolute left-[3%] top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/70 hover:bg-black/90 transition hover:cursor-pointer"
                 onClick={() => scroll("left")}
             >
                 <Image
@@ -49,7 +49,7 @@ export default function CardRow({ heading, movies }: CardRowProps) {
 
             {/* right scroll button */}
             <button 
-                className="absolute right-[3%] top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/70 hover:bg-black/90 transition hover:cursor-pointer"
+                className="hidden lg:block absolute right-[3%] top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/70 hover:bg-black/90 transition hover:cursor-pointer"
                 onClick={() => scroll("right")}
             >
                 <Image
