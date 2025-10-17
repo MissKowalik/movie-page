@@ -10,7 +10,7 @@ export default function MovieCard({ movie }: { movie: Movie }) {
       <article className="min-w-[150px] max-w-[250px] flex flex-col bg-neutral-900 rounded-lg overflow-hidden">
         
         {/* Poster */}
-        <Link href={`/movies/${movie.id}`} className="w-full">
+        <Link href={`/movies/${movie.id}/${movie.title.replace(/\s+/g, '-')}`} className="w-full">
           <div
             className="relative w-full"
             style={{ aspectRatio: '2 / 3' }} // default poster ratio
@@ -37,7 +37,7 @@ export default function MovieCard({ movie }: { movie: Movie }) {
           </div>
 
           {/* Title */}
-          <Link href={`/movies/${movie.id}`}>
+          <Link href={`/movies/${movie.id}/${movie.title.replace(/\s+/g, '-')}`}>
             <h3 className="text-sm lg:text-base font-medium text-white leading-tight line-clamp-1 hover:underline">
               {movie.title}
             </h3>

@@ -21,7 +21,7 @@ export default async function HeroStartpage() {
             aspectRatio: "16 / 9",
         }}
     >
-        <Link href={`/movies/${movie.id}`}>
+        <Link href={`/movies/${movie.id}/${movie.title.replace(/\s+/g, '-')}`}>
             <Image
                 src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
                 alt={`Backdrop image of ${movie.title}`}
@@ -43,7 +43,7 @@ export default async function HeroStartpage() {
                 lg:left-[10%] lg:bottom-[15%] lg:translate-x-0 lg:max-w-[40%] lg:text-left gap-4
             "
         >
-            <Link href={`/movies/${movie.id}`}>
+            <Link href={`/movies/${movie.id}/${movie.title.replace(/\s+/g, '-')}`}>
                 <h1 className="text-2xl md:text-4xl xl:text-6xl">
                     {movie.title}
                 </h1>
