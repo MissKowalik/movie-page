@@ -1,11 +1,8 @@
-import { Movie } from "@/lib/interfaces/movie";
 import MovieCard from "./movie-card";
 import Image from "next/image";
+import { CardRowProps } from "@/lib/types/cardrow-props";
 
-type CardRowProps = {
-  heading: string;
-  movies: Movie[];
-};
+
 
 export default function CardRow({ heading, movies }: CardRowProps) {
   return (
