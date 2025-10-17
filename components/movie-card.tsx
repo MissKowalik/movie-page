@@ -11,12 +11,17 @@ export default function MovieCard({ movie }: { movie: Movie }) {
         
         {/* Poster */}
         <Link href={`/movies/${movie.id}`} className="w-full">
-          <Image
-            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            alt={`poster of ${movie.title}`}
-            width={500}
-            height={750}
-          />
+          <div
+            className="relative w-full"
+            style={{ aspectRatio: '2 / 3' }} // default poster ratio
+          >
+            <Image
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              alt={`poster of ${movie.title}`}
+              fill
+              className="object-cover"
+            />
+          </div>
         </Link>
 
         {/* Info section */}
@@ -39,7 +44,7 @@ export default function MovieCard({ movie }: { movie: Movie }) {
           </Link>
 
           {/* Watchlist Button */}
-          <button className="mt-auto w-full rounded-full py-1 bg-neutral-700 text-xs lg:text-sm font-medium hover:bg-neutral-300 hover:text-black transition-colors">
+          <button className="mt-auto w-full rounded-full py-1 bg-neutral-700 text-xs lg:text-sm font-medium hover:bg-neutral-300 hover:text-black transition-colors hover:cursor-pointer">
             + Watchlist
           </button>
         </div>
