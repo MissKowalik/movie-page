@@ -49,8 +49,36 @@ export default function Navbar() {
 
                     {/* desktop navigation links */}
                     <ul className="hidden md:flex md:text-2xl font-bold md:gap-6 md:w-1/3 md:justify-start">
-                        <li><Link href="/movies">Movies</Link></li>
-                        <li><Link href="#">People</Link></li>
+                        <li>
+                            <Link 
+                                href="/movies"
+                                onClick={() => {
+                                    if (searchOpen) {
+                                        setQuery("");
+                                        setResults([]);
+                                    }
+                                    setSearchOpen(false)
+                                    setMenuOpen(false)
+                                }}
+                            >
+                                Movies
+                            </Link>
+                        </li>
+                        <li>
+                            <Link 
+                                href="#"
+                                onClick={() => {
+                                    if (searchOpen) {
+                                        setQuery("");
+                                        setResults([]);
+                                    }
+                                    setSearchOpen(false)
+                                    setMenuOpen(false)
+                                }}
+                            >
+                                People
+                            </Link>
+                        </li>
                     </ul>
 
                     {/* logo */}
@@ -58,7 +86,14 @@ export default function Navbar() {
                         <Link
                             href="/"
                             className={`${jaro.className} text-3xl md:text-5xl`}
-                            onClick={() => setMenuOpen(false)}
+                            onClick={() => {
+                                if (searchOpen) {
+                                    setQuery("");
+                                    setResults([]);
+                                }
+                                setSearchOpen(false)
+                                setMenuOpen(false)
+                            }}
                         >
                         <span className="italic">My- </span>MDB
                         </Link>
