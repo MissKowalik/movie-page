@@ -1,3 +1,5 @@
+"use server"
+
 // Fetch popular movies
 export async function getPopularMovies() {
   const response = await fetch(
@@ -123,4 +125,22 @@ export async function getMovies(page = 1) {
     movies: data.results,
     totalPages: data.total_pages
   };
+}
+
+
+// search movie
+export async function getMoviesByTitle(query: string) {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query)}&api_key=${process.env.API_KEY}`,
+    {
+      headers: { accept: "application/json" },
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error(`TMDB API responded with status ${response.status}`);
+  }
+
+  const data = await response.json();
+  return data.results;
 }
