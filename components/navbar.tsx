@@ -94,7 +94,14 @@ export default function Navbar() {
                         </div>
 
                         <button
-                            onClick={() => setMenuOpen(!menuOpen)}
+                            onClick={() => {
+                                if (searchOpen) {
+                                    setQuery("");
+                                    setResults([]);
+                                }
+                                setSearchOpen(false)
+                                setMenuOpen(!menuOpen)
+                            }}
                             className="w-[28px] h-[28px] relative md:hidden hover:cursor-pointer"
                         >
                             <Image 
@@ -129,7 +136,8 @@ export default function Navbar() {
                             href="#" 
                             className="flex items-center justify-between" 
                             onClick={() => 
-                            setMenuOpen(false)}
+                                setMenuOpen(false)
+                            }
                         >
                             <span>Movies</span>
                             <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px" fill="currentColor" className="w-4 h-4 md:hidden">
