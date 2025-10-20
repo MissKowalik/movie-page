@@ -200,7 +200,16 @@ export default function Navbar() {
                 {/* 🎬 Search results */}
                 {results.length > 0 && (
                     <div>
-                        <CardRow heading={`Results for "${query}"`} movies={results} />
+                        <CardRow 
+                            heading={`Results for "${query}"`} 
+                            movies={results} 
+                            onMovieClick={() => {
+                                // Close search
+                                setSearchOpen(false);
+                                setQuery("");
+                                setResults([]);
+                            }}
+                        />
                     </div>
                 )}
             </div>

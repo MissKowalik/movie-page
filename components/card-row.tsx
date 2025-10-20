@@ -6,7 +6,7 @@ import { CardRowProps } from "@/lib/types/cardrow-props";
 import { useRef } from "react";
 
 
-export default function CardRow({ heading, movies }: CardRowProps) {
+export default function CardRow({ heading, movies, onMovieClick }: CardRowProps) {
     const scrollRef = useRef<HTMLUListElement>(null);  // Reference to the horizontal scroll container
 
     // check the current scroll position of the <ul> and adjusting it smoothly.
@@ -41,7 +41,10 @@ export default function CardRow({ heading, movies }: CardRowProps) {
                 className="grid grid-flow-col md:auto-cols-[minmax(200px,1fr)] gap-4 overflow-x-auto scrollbar-none"
             >
                 {movies.map((movie) => (
-                <li key={movie.id}>
+                <li 
+                    key={movie.id}
+                    onClick={onMovieClick}
+                >
                     <MovieCard movie={movie}/>
                 </li>
                 ))}
