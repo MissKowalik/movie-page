@@ -67,7 +67,13 @@ export default function Navbar() {
                     {/* icons + hamburger */}
                     <div className="flex gap-6 md:w-1/3 justify-end">
                         <button
-                            onClick={() => setSearchOpen(!searchOpen)}
+                            onClick={() => {
+                                if (searchOpen) {
+                                    setQuery("");
+                                    setResults([]);
+                                }
+                                setSearchOpen(!searchOpen)
+                            }}
                             className="w-[28px] h-[28px] relative hover:cursor-pointer"
                         >
                             <Image 
