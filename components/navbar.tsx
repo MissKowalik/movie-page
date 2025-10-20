@@ -73,6 +73,7 @@ export default function Navbar() {
                                     setResults([]);
                                 }
                                 setSearchOpen(!searchOpen)
+                                setMenuOpen(false)
                             }}
                             className="w-[28px] h-[28px] relative hover:cursor-pointer"
                         >
