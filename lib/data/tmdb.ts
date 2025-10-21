@@ -110,13 +110,15 @@ export async function getMovieById(movie_id: number) {
 
 
 // Fetch movies 
-export async function getMovies(page = 1, filter: "popular" | "upcoming" | "all" = "all") {
+export async function getMovies(page = 1, filter: "popular" | "upcoming" | "all" = "all", query = "") {
   let endpoint = `https://api.themoviedb.org/3/discover/movie?&page=${page}&api_key=${process.env.API_KEY}`;
 
   if (filter === "popular") {
     endpoint = `https://api.themoviedb.org/3/movie/popular?&page=${page}&api_key=${process.env.API_KEY}`
   } else if (filter === "upcoming") {
     endpoint = `https://api.themoviedb.org/3/movie/upcoming?&page=${page}&api_key=${process.env.API_KEY}`
+  } else if (query.length >= 2) {
+    endpoint = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query)}&api_key=${process.env.API_KEY}`
   }
 
   const response = await fetch(endpoint,
