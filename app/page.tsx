@@ -9,8 +9,8 @@ export default async function Home() {
   return (
     <main className="flex-grow">
       <HeroStartpage/>
-      <CardRow movies={popularMovies} heading="Popular Movies"/>
-      <CardRow movies={upcomingMovies} heading="Upcoming Movies"/>
+      <CardRow movies={popularMovies} heading="Popular Movies" headingLink="/movies?filter=popular"/>
+      <CardRow movies={upcomingMovies} heading="Upcoming Movies" headingLink="/movies?filter=upcoming"/>
     </main>
   )
 }
