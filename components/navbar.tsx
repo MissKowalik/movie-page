@@ -199,7 +199,7 @@ export default function Navbar() {
 
                 {/* 🎬 Search results */}
                 {results.length > 0 && (
-                    <div>
+                    <div className="pb-2">
                         <CardRow 
                             heading={`Results for "${query}"`} 
                             movies={results} 
@@ -210,6 +210,18 @@ export default function Navbar() {
                                 setResults([]);
                             }}
                         />
+                        <Link 
+                            href={`/movies?query=${query}`} 
+                            className="flex justify-self-center rounded-full max-w-[200] py-1 px-3 bg-neutral-300 text-black hover:bg-neutral-700 hover:text-white transition-colors"
+                            onClick={() => {
+                                // Close search
+                                setSearchOpen(false);
+                                setQuery("");
+                                setResults([]);
+                            }}
+                        >
+                            view all results
+                        </Link>
                     </div>
                 )}
             </div>
