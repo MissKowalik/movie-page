@@ -15,7 +15,7 @@ export default async function CardGrid({
     return (
         <div className="flex flex-col items-center">
             
-            <header className="flex self-start mt-18 md:mt-20 px-4 md:px-8 text-2xl font-bold pb-4 md:pt-4 md:pb-8">
+            <header className="flex self-start mt-18 md:mt-20 px-4 md:px-8 text-xl lg:text-3xl pb-4 md:pt-4 md:pb-8">
                 {/* heading */}
                 <h1>
                     {filter === "popular"
