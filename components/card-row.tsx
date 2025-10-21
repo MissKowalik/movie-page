@@ -4,9 +4,10 @@ import MovieCard from "./movie-card";
 import Image from "next/image";
 import { CardRowProps } from "@/lib/types/cardrow-props";
 import { useRef } from "react";
+import Link from "next/link";
 
 
-export default function CardRow({ heading, movies, onMovieClick }: CardRowProps) {
+export default function CardRow({ heading, movies, onMovieClick, headingLink }: CardRowProps) {
     const scrollRef = useRef<HTMLUListElement>(null);  // Reference to the horizontal scroll container
 
     // check the current scroll position of the <ul> and adjusting it smoothly.
@@ -19,7 +20,16 @@ export default function CardRow({ heading, movies, onMovieClick }: CardRowProps)
 
     return (
         <section className="relative px-4 md:px-8 py-8 overflow-hidden">
-        <h2 className="text-xl lg:text-3xl pb-8">{heading}</h2>
+
+            {/* turn heading into link if headingLink is passed along as a prop */}
+            {headingLink ? (
+                <Link href={headingLink}>
+                    <h2 className="text-xl lg:text-3xl pb-8 hover:underline">{heading}</h2>
+                </Link>
+            ) : (
+                <h2 className="text-xl lg:text-3xl pb-8">{heading}</h2>
+            )}
+        
 
             {/* left scroll button */}
             <button 
