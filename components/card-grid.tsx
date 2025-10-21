@@ -8,9 +8,9 @@ export default async function CardGrid({
 }: {
     searchParams: Promise<{ [key: string]: string | undefined}>;
 }) {
-    const { page = "1"} = await searchParams;
+    const { page = "1", filter = "all"} = await searchParams;
     const pageNumber = parseInt(page)
-    const { movies, totalPages} = await getMovies(pageNumber); 
+    const { movies, totalPages} = await getMovies(pageNumber, filter as "popular" | "upcoming" | "all"); 
 
     return (
         <section className="flex flex-col items-center px-4 md:px-8">
