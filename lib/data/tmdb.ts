@@ -110,15 +110,26 @@ export async function getMovieById(movie_id: number) {
 
 
 // Fetch movies 
-export async function getMovies(page = 1) {
-  const response = await fetch(
-    `https://api.themoviedb.org/3/discover/movie?&page=${page}&api_key=${process.env.API_KEY}`,
+export async function getMovies(page = 1, filter: "popular" | "upcoming" | "all" = "all") {
+  let endpoint = `https://api.themoviedb.org/3/discover/movie?&page=${page}&api_key=${process.env.API_KEY}`;
+
+  if (filter === "popular") {
+    endpoint = `https://api.themoviedb.org/3/movie/popular?&page=${page}&api_key=${process.env.API_KEY}`
+  } else if (filter === "upcoming") {
+    endpoint = `https://api.themoviedb.org/3/movie/upcoming?&page=${page}&api_key=${process.env.API_KEY}`
+  }
+
+  const response = await fetch(endpoint,
     {
       headers: {
         accept: "application/json",
       },
     }
   )
+
+  if (!response.ok) {
+    throw new Error(`TMDB API responded with status ${response.status}`);
+  }
 
   const data = await response.json();
   return {
