@@ -2,11 +2,12 @@ import { Movie } from "@/lib/interfaces/movie"
 import { Genre } from "@/lib/types/genre"
 import HeroBackdrop from "./hero-backdrop"
 import HeroHeader from "./hero-header"
+import HeroReleaseRating from "./hero-release-rating"
 
 export default function HeroMoviePage({movie}: {movie: Movie}) {
     return (
         <HeroHeader>
-            
+
                 <HeroBackdrop movie={movie}/>
         
                 {/* dark gradient background for contrast against the white text */}
@@ -47,13 +48,7 @@ export default function HeroMoviePage({movie}: {movie: Movie}) {
                     </div>
 
                     {/* Release year & rating */}
-                    <div className="flex justify-center lg:justify-start gap-4 text-sm lg:text-lg">
-                        <span>{movie.release_date.split("-")[0]}</span>
-                        <span className="flex items-center">
-                            <span className="text-amber-400 pr-1">★</span>
-                            {movie.vote_average.toFixed(1)}
-                        </span>
-                    </div>
+                    <HeroReleaseRating movie={movie}/>
 
                     <div className="flex flex-wrap mt-2 justify-center lg:justify-start gap-4">
                         <button className="rounded-full max-w-[200] py-1 px-3 bg-amber-400 text-black font-semibold text-md hover:bg-neutral-800 hover:text-white transition-colors hover:cursor-pointer">
