@@ -1,5 +1,5 @@
 import CardRow from "@/components/card-row";
-import HeroStartpage from "@/components/hero-startpage";
+import HeroStartpage from "@/components/hero/hero-startpage";
 import { getPopularMovies, getUpcomingMovies } from "@/lib/data/tmdb";
 
 export default async function Home() {

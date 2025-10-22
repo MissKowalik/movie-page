@@ -1,7 +1,7 @@
 import { getGenres, getRandomMovie } from "@/lib/data/tmdb"
-import Image from "next/image";
 import { Genre } from "@/lib/types/genre";
 import Link from "next/link";
+import HeroBackdrop from "./hero-backdrop";
 
 
 export default async function HeroStartpage() {
@@ -21,16 +21,7 @@ export default async function HeroStartpage() {
             aspectRatio: "16 / 9",
         }}
     >
-        <Link href={`/movies/${movie.id}`}>
-            <Image
-                src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-                alt={`Backdrop image of ${movie.title}`}
-                fill  // Makes the image fill the parent container
-                style={{ objectFit: "cover" }}  // Ensures image covers the area without distortion
-                sizes="100vw"  // Responsive image sizing for optimization
-                priority  // Loads image early for better UX
-            />
-        </Link>
+        <HeroBackdrop movie={movie} backdropLink={`/movies/${movie.id}`}/>
 
         {/* dark gradient background for contrast against the white text */}
         <div className="absolute bottom-0 left-0 w-full h-[60%] bg-gradient-to-t to-transparent from-black" />

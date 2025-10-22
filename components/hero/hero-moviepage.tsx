@@ -1,6 +1,6 @@
-import Image from "next/image"
 import { Movie } from "@/lib/interfaces/movie"
 import { Genre } from "@/lib/types/genre"
+import HeroBackdrop from "./hero-backdrop"
 
 export default function HeroMoviePage({movie}: {movie: Movie}) {
     return (
@@ -13,14 +13,7 @@ export default function HeroMoviePage({movie}: {movie: Movie}) {
                     aspectRatio: "16 / 9",
                 }}
             >
-                <Image
-                    src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-                    alt={`Backdrop image of ${movie.title}`}
-                    fill  // Makes the image fill the parent container
-                    style={{ objectFit: "cover" }}  // Ensures image covers the area without distortion
-                    sizes="100vw"  // Responsive image sizing for optimization
-                    priority  // Loads image early for better UX
-                />
+                <HeroBackdrop movie={movie}/>
         
                 {/* dark gradient background for contrast against the white text */}
                 <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t to-neutral-400/20 from-black" />
