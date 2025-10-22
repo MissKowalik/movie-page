@@ -1,9 +1,9 @@
 import { getGenres, getRandomMovie } from "@/lib/data/tmdb"
 import { Genre } from "@/lib/types/genre";
-import Link from "next/link";
 import HeroBackdrop from "./hero-backdrop";
 import HeroHeader from "./hero-header";
 import HeroReleaseRating from "./hero-release-rating";
+import HeroHeading from "./hero-heading";
 
 
 export default async function HeroStartpage() {
@@ -15,12 +15,12 @@ export default async function HeroStartpage() {
 
     return (
     <HeroHeader>
-        
         <HeroBackdrop movie={movie} backdropLink={`/movies/${movie.id}`}/>
 
         {/* dark gradient background for contrast against the white text */}
         <div className="absolute bottom-0 left-0 w-full h-[60%] bg-gradient-to-t to-transparent from-black" />
 
+        {/* hero content */}
         <div
             className="
                 absolute bottom-15 text-center flex flex-col
@@ -29,11 +29,8 @@ export default async function HeroStartpage() {
                 lg:left-[10%] lg:bottom-[15%] lg:translate-x-0 lg:max-w-[40%] lg:text-left gap-4
             "
         >
-            <Link href={`/movies/${movie.id}`}>
-                <h1 className="text-2xl md:text-4xl xl:text-6xl">
-                    {movie.title}
-                </h1>
-            </Link>
+            
+            <HeroHeading movie={movie} headingLink={`/movies/${movie.id}`}/>
 
             {/* genres */}
             <div className="flex justify-center lg:justify-start gap-4 flex-wrap">
