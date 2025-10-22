@@ -1,18 +1,12 @@
 import { Movie } from "@/lib/interfaces/movie"
 import { Genre } from "@/lib/types/genre"
 import HeroBackdrop from "./hero-backdrop"
+import HeroHeader from "./hero-header"
 
 export default function HeroMoviePage({movie}: {movie: Movie}) {
     return (
-        <header 
-                className="relative w-full"
-                style={{
-                    height: "auto",
-                    minHeight: "70vh",
-                    maxHeight: "100vh",
-                    aspectRatio: "16 / 9",
-                }}
-            >
+        <HeroHeader>
+            
                 <HeroBackdrop movie={movie}/>
         
                 {/* dark gradient background for contrast against the white text */}
@@ -72,6 +66,6 @@ export default function HeroMoviePage({movie}: {movie: Movie}) {
                     </div>
                 </div>
         
-            </header>
+            </HeroHeader>
     )
 }

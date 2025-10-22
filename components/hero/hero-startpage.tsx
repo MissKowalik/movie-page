@@ -2,6 +2,7 @@ import { getGenres, getRandomMovie } from "@/lib/data/tmdb"
 import { Genre } from "@/lib/types/genre";
 import Link from "next/link";
 import HeroBackdrop from "./hero-backdrop";
+import HeroHeader from "./hero-header";
 
 
 export default async function HeroStartpage() {
@@ -12,15 +13,8 @@ export default async function HeroStartpage() {
     const genreNames = movie.genre_ids.map((id: number) => genres.find((g: Genre) => g.id === id)?.name)
 
     return (
-    <header 
-        className="relative w-full"
-        style={{
-            height: "auto",
-            minHeight: "70vh",
-            maxHeight: "100vh",
-            aspectRatio: "16 / 9",
-        }}
-    >
+    <HeroHeader>
+        
         <HeroBackdrop movie={movie} backdropLink={`/movies/${movie.id}`}/>
 
         {/* dark gradient background for contrast against the white text */}
@@ -62,6 +56,6 @@ export default async function HeroStartpage() {
             </div>
         </div>
 
-    </header>
+    </HeroHeader>
   );
 }
