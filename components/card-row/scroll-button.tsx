@@ -1,9 +1,5 @@
 import Image from "next/image";
-
-type ScrollButtonProps = {
-    direction: "left" | "right";
-    onClick: () => void;
-}
+import { ScrollButtonProps } from "@/lib/types/scroll-button-props";
 
 export default function ScrollButton({ direction, onClick }: ScrollButtonProps) {
     const positionClass = direction === "left" ? "left-[3%]" : "right-[3%]";
