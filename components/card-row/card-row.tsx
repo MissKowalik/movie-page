@@ -1,7 +1,6 @@
 "use client"
 
 import MovieCard from "../movie-card";
-import Image from "next/image";
 import { CardRowProps } from "@/lib/types/cardrow-props";
 import CardRowHeading from "./card-row-heading";
 import UseHorizontalScroll from "./use-horizontal-scroll";
