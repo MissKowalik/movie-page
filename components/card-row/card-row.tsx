@@ -5,6 +5,7 @@ import Image from "next/image";
 import { CardRowProps } from "@/lib/types/cardrow-props";
 import CardRowHeading from "./card-row-heading";
 import UseHorizontalScroll from "./use-horizontal-scroll";
+import ScrollButton from "./scroll-button";
 
 
 export default function CardRow({ heading, movies, onMovieClick, headingLink }: CardRowProps) {
@@ -17,20 +18,7 @@ export default function CardRow({ heading, movies, onMovieClick, headingLink }: 
             <CardRowHeading heading={heading} headingLink={headingLink}/>
 
             {/* left scroll button */}
-            {canScrollLeft && (
-                <button 
-                    className="hidden lg:block absolute left-[3%] top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/70 hover:bg-black/90 transition hover:cursor-pointer"
-                    onClick={() => scroll("left")}
-                >
-                    <Image
-                        src="/arrow-backward.svg"
-                        alt="Scroll left"
-                        width={20}
-                        height={20}
-                        className="invert"
-                    />
-                </button>
-            )}
+            {canScrollLeft && <ScrollButton direction={"left"} onClick={() => scroll("left")}/>}
 
             {/* scrollable list of movie cards*/}
             <ul 
@@ -48,20 +36,7 @@ export default function CardRow({ heading, movies, onMovieClick, headingLink }: 
             </ul>
 
             {/* right scroll button */}
-            {canScrollRight && (
-                <button 
-                    className="hidden lg:block absolute right-[3%] top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/70 hover:bg-black/90 transition hover:cursor-pointer"
-                    onClick={() => scroll("right")}
-                >
-                    <Image
-                        src="/arrow-forward.svg"
-                        alt="Scroll right"
-                        width={20}
-                        height={20}
-                        className="invert"
-                    />
-                </button>
-            )}
+            {canScrollRight && <ScrollButton direction={"right"} onClick={() => scroll("right")} />}
         </section>
   );
 }
