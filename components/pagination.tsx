@@ -22,6 +22,7 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
       <button
         onClick={() => goToPage(currentPage - 1)}
         disabled={currentPage <= 1}
+        className="hover:cursor-pointer disabled:opacity-40 disabled:cursor-auto"
       >
         <span className="hidden">previous page</span>
           <svg
@@ -43,6 +44,7 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
       <button
         onClick={() => goToPage(currentPage + 1)}
         disabled={currentPage >= totalPages}
+        className="hover:cursor-pointer disabled:opacity-40 disabled:cursor-auto"
       >
         <span className="hidden">next page</span>
           <svg
