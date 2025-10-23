@@ -40,10 +40,8 @@ export default function Navbar() {
                                 href="/movies"
                                 onClick={() => {
                                     if (searchOpen) {
-                                        setQuery("");
-                                        setResults([]);
+                                        closeSearch()
                                     }
-                                    setSearchOpen(false)
                                     setMenuOpen(false)
                                 }}
                             >
@@ -59,10 +57,8 @@ export default function Navbar() {
                             className={`${jaro.className} text-3xl md:text-5xl`}
                             onClick={() => {
                                 if (searchOpen) {
-                                    setQuery("");
-                                    setResults([]);
+                                    closeSearch()
                                 }
-                                setSearchOpen(false)
                                 setMenuOpen(false)
                             }}
                         >
@@ -75,8 +71,7 @@ export default function Navbar() {
                         <button
                             onClick={() => {
                                 if (searchOpen) {
-                                    setQuery("");
-                                    setResults([]);
+                                    closeSearch()
                                 }
                                 setSearchOpen(!searchOpen)
                                 setMenuOpen(false)
@@ -103,10 +98,8 @@ export default function Navbar() {
                         <button
                             onClick={() => {
                                 if (searchOpen) {
-                                    setQuery("");
-                                    setResults([]);
+                                    closeSearch()
                                 }
-                                setSearchOpen(false)
                                 setMenuOpen(!menuOpen)
                             }}
                             className="w-[28px] h-[28px] relative md:hidden hover:cursor-pointer"
