@@ -64,21 +64,6 @@ export default function Navbar() {
                                 Movies
                             </Link>
                         </li>
-                        <li>
-                            <Link 
-                                href="#"
-                                onClick={() => {
-                                    if (searchOpen) {
-                                        setQuery("");
-                                        setResults([]);
-                                    }
-                                    setSearchOpen(false)
-                                    setMenuOpen(false)
-                                }}
-                            >
-                                People
-                            </Link>
-                        </li>
                     </ul>
 
                     {/* logo */}
