@@ -4,9 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { Jaro } from "next/font/google";
 import { useState } from "react";
-import CardRow from "../card-row/card-row";
 import { Movie } from "@/lib/interfaces/movie";
 import SearchBar from "./searchbar";
+import SearchResults from "./search-results";
 
 const jaro = Jaro({
     subsets: ["latin"],
@@ -18,6 +18,12 @@ export default function Navbar() {
     const [searchOpen, setSearchOpen] = useState(false);
     const [query, setQuery] = useState("");
     const [results, setResults] = useState<Movie[]>([]);
+
+    const closeSearch = () => {
+        setSearchOpen(false);
+        setQuery("");
+        setResults([]);
+    }
 
     return (
         <header className="fixed top-0 left-0 w-full z-50">
@@ -40,7 +46,7 @@ export default function Navbar() {
                                     setMenuOpen(false)
                                 }}
                             >
-                                Hi
+                                Movies
                             </Link>
                         </li>
                     </ul>
@@ -116,71 +122,33 @@ export default function Navbar() {
 
                 {/* searchbar */}
                 {searchOpen && <SearchBar query={query} onQueryChange={setQuery} onResults={setResults}/>}
+                
+                {/* search results */}
+                <SearchResults query={query} results={results} onMovieClick={closeSearch} onViewAllClick={closeSearch} />
 
                 {/* mobile dropdown */}
                 {menuOpen && (
                 <div className="md:hidden text-black">
                     <ul className="flex flex-col text-xl font-light pb-4 px-4 space-y-4">
-                    <li>
-                        <Link 
-                            href="#" 
-                            className="flex items-center justify-between" 
-                            onClick={() => 
-                                setMenuOpen(false)
-                            }
-                        >
-                            <span>Movies</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px" fill="currentColor" className="w-4 h-4 md:hidden">
-                                <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/>
-                            </svg>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link 
-                            href="#" 
-                            className="flex items-center justify-between" 
-                            onClick={() => setMenuOpen(false)}
-                        >
-                            <span>People</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px" fill="currentColor" className="w-4 h-4 md:hidden">
-                                <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/>
-                            </svg>
-                        </Link>
-                    </li>
+                        <li>
+                            <Link 
+                                href="/movies" 
+                                className="flex items-center justify-between" 
+                                onClick={() => 
+                                    setMenuOpen(false)
+                                }
+                            >
+                                <span>Movies</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px" fill="currentColor" className="w-4 h-4 md:hidden">
+                                    <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/>
+                                </svg>
+                            </Link>
+                        </li>
                     </ul>
                 </div>
                 )}
 
-                {/* 🎬 Search results */}
-                {results.length > 0 && (
-                    <div className="pb-2">
-                        <CardRow 
-                            heading={`Results for "${query}"`} 
-                            movies={results} 
-                            onMovieClick={() => {
-                                // Close search
-                                setSearchOpen(false);
-                                setQuery("");
-                                setResults([]);
-                            }}
-                        />
-                        <Link 
-                            href={`/movies?query=${query}`} 
-                            className="flex justify-self-center rounded-full max-w-[200] py-1 px-3 bg-neutral-300 text-black hover:bg-neutral-700 hover:text-white transition-colors"
-                            onClick={() => {
-                                // Close search
-                                setSearchOpen(false);
-                                setQuery("");
-                                setResults([]);
-                            }}
-                        >
-                            view all results
-                        </Link>
-                    </div>
-                )}
             </div>
-
-        
         </header>
     );
 }
