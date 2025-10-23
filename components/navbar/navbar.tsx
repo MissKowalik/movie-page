@@ -3,11 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Jaro } from "next/font/google";
-import { useState, useTransition } from "react";
-import { useDebouncedCallback } from "use-debounce";
-import { searchMoviesAction } from "@/app/server-actions/search-movies";
-import CardRow from "./card-row/card-row";
+import { useState } from "react";
+import CardRow from "../card-row/card-row";
 import { Movie } from "@/lib/interfaces/movie";
+import SearchBar from "./searchbar";
 
 const jaro = Jaro({
     subsets: ["latin"],
@@ -19,26 +18,6 @@ export default function Navbar() {
     const [searchOpen, setSearchOpen] = useState(false);
     const [query, setQuery] = useState("");
     const [results, setResults] = useState<Movie[]>([]);
-    const [, startTransition] = useTransition();
-
-    // Debounced search
-    const debouncedSearch = useDebouncedCallback((value: string) => {
-        if (value.trim().length < 2) {
-        setResults([]);
-        return;
-        }
-
-        startTransition(async () => {
-            const movies = await searchMoviesAction(value);
-            setResults(movies || []);
-        });
-    }, 400);
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value;
-        setQuery(value);
-        debouncedSearch(value);
-    };
 
     return (
         <header className="fixed top-0 left-0 w-full z-50">
@@ -61,7 +40,7 @@ export default function Navbar() {
                                     setMenuOpen(false)
                                 }}
                             >
-                                Movies
+                                Hi
                             </Link>
                         </li>
                     </ul>
@@ -136,17 +115,7 @@ export default function Navbar() {
                 </nav>
 
                 {/* searchbar */}
-                {searchOpen && (
-                <div className="px-4 md:px-8 pb-2">
-                    <input
-                        type="text"
-                        placeholder="Search for a movie..."
-                        className="w-full text-black placeholder-neutral-600 focus:outline-none text-base py-2"
-                        value={query}
-                        onChange={handleChange}
-                    />
-                </div>
-                )}
+                {searchOpen && <SearchBar query={query} onQueryChange={setQuery} onResults={setResults}/>}
 
                 {/* mobile dropdown */}
                 {menuOpen && (
