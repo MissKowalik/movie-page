@@ -1,5 +1,5 @@
 import { getMovieById } from "@/lib/data/tmdb"
-import HeroMoviePage from "@/components/hero-moviepage";
+import HeroMoviePage from "@/components/hero/hero-moviepage";
 
 
 export default async function MovieDetails({params}: {params: Promise<{id: number}>}) {
