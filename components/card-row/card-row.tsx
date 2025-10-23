@@ -1,10 +1,10 @@
 "use client"
 
-import MovieCard from "./movie-card";
+import MovieCard from "../movie-card";
 import Image from "next/image";
 import { CardRowProps } from "@/lib/types/cardrow-props";
 import { useRef, useState, useEffect } from "react";
-import Link from "next/link";
+import CardRowHeading from "./card-row-heading";
 
 
 export default function CardRow({ heading, movies, onMovieClick, headingLink }: CardRowProps) {
@@ -50,15 +50,7 @@ export default function CardRow({ heading, movies, onMovieClick, headingLink }: 
     return (
         <section className="relative px-4 md:px-8 py-8 overflow-hidden">
 
-            {/* turn heading into link if headingLink is passed along as a prop */}
-            {headingLink ? (
-                <Link href={headingLink}>
-                    <h2 className="text-xl lg:text-3xl pb-8 hover:underline">{heading}</h2>
-                </Link>
-            ) : (
-                <h2 className="text-xl lg:text-3xl pb-8">{heading}</h2>
-            )}
-        
+            <CardRowHeading heading={heading} headingLink={headingLink}/>
 
             {/* left scroll button */}
             {canScrollLeft && (

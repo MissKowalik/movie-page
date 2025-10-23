@@ -6,7 +6,7 @@ import { Jaro } from "next/font/google";
 import { useState, useTransition } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import { searchMoviesAction } from "@/app/server-actions/search-movies";
-import CardRow from "./card-row";
+import CardRow from "./card-row/card-row";
 import { Movie } from "@/lib/interfaces/movie";
 
 const jaro = Jaro({

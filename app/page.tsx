@@ -1,4 +1,4 @@
-import CardRow from "@/components/card-row";
+import CardRow from "@/components/card-row/card-row";
 import HeroStartpage from "@/components/hero/hero-startpage";
 import { getPopularMovies, getUpcomingMovies } from "@/lib/data/tmdb";
 
