@@ -1,13 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { Jaro } from "next/font/google";
 import { useState } from "react";
 import { Movie } from "@/lib/interfaces/movie";
 import SearchBar from "./searchbar";
 import SearchResults from "./search-results";
 import MobileMenu from "./mobile-menu";
+import NavbarIcons from "./navbar-icons";
 
 const jaro = Jaro({
     subsets: ["latin"],
@@ -62,56 +62,26 @@ export default function Navbar() {
                                 setMenuOpen(false)
                             }}
                         >
-                        <span className="italic">My- </span>MDB
+                        <span className="italic pr-1">My-</span>MDB
                         </Link>
                     </div>
 
-                    {/* icons + hamburger */}
-                    <div className="flex gap-6 md:w-1/3 justify-end">
-                        <button
-                            onClick={() => {
-                                if (searchOpen) {
-                                    closeSearch()
-                                }
-                                setSearchOpen(!searchOpen)
-                                setMenuOpen(false)
-                            }}
-                            className="w-[28px] h-[28px] relative hover:cursor-pointer"
-                        >
-                            <Image 
-                                src="/search.svg" 
-                                alt="Search Icon" 
-                                fill 
-                                style={{ objectFit: "contain" }} 
-                            />
-                        </button>
-
-                        <div className="w-[28px] h-[28px] relative">
-                            <Image 
-                                src="/user.svg" 
-                                alt="User Icon" 
-                                fill 
-                                style={{ objectFit: "contain" }} 
-                            />
-                        </div>
-
-                        <button
-                            onClick={() => {
-                                if (searchOpen) {
-                                    closeSearch()
-                                }
-                                setMenuOpen(!menuOpen)
-                            }}
-                            className="w-[28px] h-[28px] relative md:hidden hover:cursor-pointer"
-                        >
-                            <Image 
-                                src="/hamburger-menu.svg" 
-                                alt="Menu Toggle" 
-                                fill 
-                                style={{ objectFit: "contain" }} 
-                            />
-                        </button>
-                    </div>
+                    {/* icons */}
+                    <NavbarIcons
+                        searchOpen={searchOpen}
+                        menuOpen={menuOpen}
+                        onResetSearch={closeSearch}
+                        onToggleSearch={() => {
+                            setSearchOpen(!searchOpen);
+                            setMenuOpen(false);
+                        }}
+                        onToggleMenu={() => {
+                            if (searchOpen) {
+                            closeSearch();
+                            }
+                            setMenuOpen(!menuOpen);
+                        }}
+                    />
                 </nav>
 
                 {/* searchbar */}
